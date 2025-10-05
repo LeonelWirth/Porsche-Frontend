@@ -1,13 +1,12 @@
-import { BrowserRouter } from "react-router-dom"
-import MainRouter from "./shared/routes/MainRouter"
-
+import { BrowserRouter } from "react-router-dom";
+import MainRouter from "./shared/routes/MainRouter";
 
 function App() {
   return (
     <BrowserRouter>
       <MainRouter />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

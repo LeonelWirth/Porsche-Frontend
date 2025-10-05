@@ -1,11 +1,11 @@
 import type { RouteObject } from "react-router-dom";
-import Home from "../pages/Home";
+import HomePage from "../pages/HomePage";
 
 export const homeRoutes: RouteObject = {
   path: "/",
   children: [
     {
-      element: <Home />,
+      element: <HomePage />,
       index: true,
     },
   ],
