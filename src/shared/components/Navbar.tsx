@@ -30,6 +30,7 @@ export const Navbar = () => {
         >
           Porch Gardening
         </Typography>
+        <Typography>Ingresa</Typography>
         <Box />
       </Toolbar>
     </AppBar>

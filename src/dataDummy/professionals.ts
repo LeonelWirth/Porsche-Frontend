@@ -1,7 +1,15 @@
 import type { Professional } from "../shared/types/professional";
 
 export const professionals: Professional[] = [
-  { id: "tomas", name: "TOMAS PACHECO" },
-  { id: "julian", name: "JULIAN CHOSCOS" },
-  { id: "franco", name: "FRANCO ERBIN" },
+  {
+    id: "jose",
+    name: "José Pacheco",
+    skills: ["Cortar", "Bordear", "Juntar Hojas"],
+  },
+  { id: "franco", name: "Franco Colapinto", skills: ["Cortar", "Fertilizar"] },
+  {
+    id: "julian",
+    name: "Julian Choscos",
+    skills: ["Cortar", "Bordear", "Fertilizar", "Juntar Hojas"],
+  },
 ];

@@ -7,7 +7,9 @@ export const AppLayout = ({ children }: PropsWithChildren) => {
   return (
     <Box minHeight="100dvh" display="flex" flexDirection="column">
       <Navbar />
-      <Container sx={{ flexGrow: 1, py: 3 }}>{children}</Container>
+      <Container sx={{ flexGrow: 1, pt: 3, color: "black" }}>
+        {children}
+      </Container>
       <Footer />
     </Box>
   );
