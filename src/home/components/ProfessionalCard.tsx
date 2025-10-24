@@ -9,22 +9,14 @@ import {
   Chip,
   Box,
 } from "@mui/material";
-import type { Professional } from "../../shared/types/professional";
-import { Link } from "react-router-dom";
 
-type Props = {
-  professional: Professional;
-  /** Ruta a la que querés mandar el CTA (por defecto un detalle del pro) */
-  to?: string;
-  /** Texto del CTA (por defecto “Ver agenda”) */
-  ctaText?: string;
-};
+import { Link } from "react-router-dom";
 
 export default function ProfessionalCard({
   professional,
-  to = `/pros/${professional.id}`,
-  ctaText = "Ver agenda",
-}: Props) {
+}: {
+  professional: any;
+}) {
   return (
     <Card variant="outlined">
       <CardContent>
@@ -42,11 +34,11 @@ export default function ProfessionalCard({
             <Typography variant="h6">{professional.name}</Typography>
           </Stack>
 
-          {professional.skills?.length ? (
+          {professional.profile?.bio ? (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-              {professional.skills.slice(0, 4).map((skill) => (
-                <Chip size="small" key={skill} label={skill} />
-              ))}
+              <Typography variant="body2" color="text.secondary">
+                {professional.profile.bio}
+              </Typography>
             </Box>
           ) : (
             <Typography variant="body2" color="text.secondary">
@@ -57,8 +49,13 @@ export default function ProfessionalCard({
       </CardContent>
 
       <CardActions sx={{ px: 2, pb: 2 }}>
-        <Button fullWidth component={Link} to={to}>
-          {ctaText}
+        <Button
+          fullWidth
+          component={Link}
+          to={`/professionals/${professional.id}`}
+          variant="contained"
+        >
+          {"Agendar Servicio"}
         </Button>
       </CardActions>
     </Card>
