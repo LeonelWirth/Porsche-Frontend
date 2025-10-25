@@ -1,3 +1,4 @@
+import React from "react";
 import {
   AppBar,
   Toolbar,
@@ -8,46 +9,81 @@ import {
   Grid,
   Card,
   CardContent,
+  Stack,
+  IconButton,
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import LawnMowerIcon from "@mui/icons-material/Grass";
+import MenuIcon from "@mui/icons-material/Menu";
 import heroImage from "../public/Diseño de logo Podafy.png";
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: "#2e7d32",
-    },
-    secondary: {
-      main: "#81c784",
-    },
+    primary: { main: "#2e7d32" },
+    secondary: { main: "#81c784" },
   },
 });
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ width: "100vw" }}>
-        <AppBar position="static" color="primary" sx={{ paddingY: 1 }}>
-          <Toolbar>
-            <LawnMowerIcon sx={{ mr: 2 }} />
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>
-              Podafy
-            </Typography>
-            <Button color="inherit">Servicios</Button>
-            <Button color="inherit">Nosotros</Button>
-            <Button color="inherit">Contacto</Button>
-          </Toolbar>
+      <Box sx={{ width: "100%" }}>
+        {/* HEADER */}
+        <AppBar position="static" color="primary">
+          {/* Usamos Container para limitar ancho SIN cortar contenido */}
+          <Container maxWidth="lg">
+            <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
+              <Stack
+                direction="row"
+                alignItems="center"
+                spacing={1}
+                sx={{ minWidth: 0 }}
+              >
+                <LawnMowerIcon />
+                <Typography variant="h6" noWrap>
+                  Podafy
+                </Typography>
+              </Stack>
+
+              {/* Menú responsive: botones grandes en md+, hamburguesa en xs-sm */}
+              <Stack
+                direction="row"
+                spacing={2}
+                sx={{ display: { xs: "none", md: "flex" }, flexShrink: 0 }}
+              >
+                <Button color="inherit">Servicios</Button>
+                <Button color="inherit">Nosotros</Button>
+                <Button color="inherit">Contacto</Button>
+              </Stack>
+              <IconButton
+                color="inherit"
+                sx={{ display: { xs: "inline-flex", md: "none" } }}
+                aria-label="menu"
+              >
+                <MenuIcon />
+              </IconButton>
+            </Toolbar>
+          </Container>
         </AppBar>
 
+        {/* HERO */}
         <Box sx={{ backgroundColor: "#e8f5e9", py: 8, textAlign: "center" }}>
-          <Container>
+          <Container maxWidth="lg">
             <img
               src={heroImage}
               alt="Podafy Logo"
-              style={{ width: 160, borderRadius: "50%", marginBottom: 20 }}
+              style={{
+                width: 180,
+                maxWidth: "90%",
+                borderRadius: "50%",
+                marginBottom: 20,
+              }}
             />
-            <Typography variant="h3" gutterBottom>
+            <Typography
+              variant="h3"
+              gutterBottom
+              sx={{ fontSize: { xs: "2rem", md: "3rem" } }}
+            >
               Mantené tu jardín perfecto con Podafy
             </Typography>
             <Typography variant="h6" color="text.secondary" gutterBottom>
@@ -65,7 +101,8 @@ function App() {
           </Container>
         </Box>
 
-        <Container sx={{ py: 8 }}>
+        {/* SERVICIOS */}
+        <Container maxWidth="lg" sx={{ py: 8 }}>
           <Typography variant="h4" align="center" gutterBottom>
             Nuestros Servicios
           </Typography>
@@ -100,8 +137,9 @@ function App() {
           </Grid>
         </Container>
 
+        {/* CTA FINAL */}
         <Box sx={{ backgroundColor: "#1b5e20", color: "white", py: 6 }}>
-          <Container>
+          <Container maxWidth="lg">
             <Typography variant="h5" align="center" gutterBottom>
               ¿Listo para un jardín espectacular?
             </Typography>
@@ -117,6 +155,7 @@ function App() {
           </Container>
         </Box>
 
+        {/* FOOTER */}
         <Box
           sx={{
             backgroundColor: "#2e7d32",
